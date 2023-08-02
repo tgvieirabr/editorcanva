@@ -46,10 +46,10 @@ const CanvasViewItem = ({ id, name, description, updatedAt, onClose }: Props) =>
     >
       <VStack spacing={2} sx={{ alignItems: 'flex-start', w: '100%' }}>
         <Box>
-          <Text fontSize="18px" fontWeight="600" color="pink.500">
+          <Text fontSize="18px" fontWeight="600" color="#6abe45">
             {name}
           </Text>
-          <Text fontSize="16px" fontWeight="500" color="pink.500">
+          <Text fontSize="16px" fontWeight="500" color="#6abe45">
             {description}
           </Text>
         </Box>
@@ -59,7 +59,7 @@ const CanvasViewItem = ({ id, name, description, updatedAt, onClose }: Props) =>
         <Box sx={{ display: 'flex', w: '100%', justifyContent: 'flex-end' }}>
           <IconButton
             variant="outline"
-            colorScheme="pink"
+            colorScheme="#6abe45"
             isLoading={isLoading}
             size="sm"
             onClick={() => removeStage()}

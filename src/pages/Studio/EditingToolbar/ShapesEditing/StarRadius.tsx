@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Menu,
   MenuButton,
@@ -10,9 +10,9 @@ import {
   SliderTrack,
   SliderThumb,
   Box,
-} from '@chakra-ui/react';
-import useStageObject from '~/hooks/use-stage-object';
-import { StageObjectData } from '~/types/stage-object';
+} from "@chakra-ui/react";
+import useStageObject from "~/hooks/use-stage-object";
+import { StageObjectData } from "~/types/stage-object";
 
 type IProps = {
   shapeId: string;

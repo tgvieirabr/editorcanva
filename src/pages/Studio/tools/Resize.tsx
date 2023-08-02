@@ -158,7 +158,7 @@ const Resize = () => {
     <VStack>
       <FormControl display="flex" justifyContent="space-between">
         <FormLabel htmlFor="width" marginY="auto">
-          Width (px)
+          Largura da Imagem (px)
         </FormLabel>
         <Input
           id="width"
@@ -166,14 +166,14 @@ const Resize = () => {
           type="number"
           width="100px"
           value={width}
-          focusBorderColor="pink.500"
+          focusBorderColor="#6abe45"
           onChange={handleChangeWidth}
           onBlur={handleBlurWidth}
         />
       </FormControl>
       <FormControl display="flex" justifyContent="space-between">
         <FormLabel htmlFor="height" marginY="auto">
-          Height (px)
+          Altura da Imagem (px)
         </FormLabel>
         <Input
           id="height"
@@ -181,7 +181,7 @@ const Resize = () => {
           type="number"
           width="100px"
           value={height}
-          focusBorderColor="pink.500"
+          focusBorderColor="#6abe45"
           onChange={handleChangeHeight}
           onBlur={handleBlurHeight}
         />

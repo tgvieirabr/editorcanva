@@ -1,6 +1,5 @@
 import { Link, Text, VStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import NothingFound from '~/components/NothingFound/NothingFound';
 import { unsplash } from '~/utils/unsplash-api';
 import SearchForm from './SearchForm';
@@ -64,15 +63,13 @@ const Images = () => {
       <VStack bgColor="white" w="100%" spacing={3} p="4">
         <SearchForm setSearch={setQuery} setQueryReset={setQueryReset} />
         <Text>
-          View more on{' '}
-          <Link isExternal color="pink.500" as={RouterLink} to={UNSPLASH_URL}>
-            Unsplash
-          </Link>
+          Mostrando abaixo seu estoque {' '}
+      
         </Text>
       </VStack>
       <VStack id="imageGrid" spacing={3} sx={{ p: 4, position: 'relative', h: '100%', overflowY: 'auto' }}>
         {!images?.length ? (
-          <NothingFound message="No images were found." />
+          <NothingFound message="Acabou as foto Thê." />
         ) : (
           <>
             <InfiniteWrapper fetchItems={fetchImages} count={images?.length || 10}>

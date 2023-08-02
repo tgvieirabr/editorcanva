@@ -24,8 +24,8 @@ export default defineConfig({
       manifest: {
         name: 'tg-react',
         short_name: 'tg-react',
-        description: 'A web-based design editor. Create images for social media, youtube previews, facebook covers.',
-        theme_color: '#D53F8C',
+        description: 'mvp do canva feito em reactjs.',
+        theme_color: '#6abe45',
         icons: [
           {
             src: 'pwa-64x64.png',

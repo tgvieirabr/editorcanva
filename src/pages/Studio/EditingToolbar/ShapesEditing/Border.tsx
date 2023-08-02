@@ -91,18 +91,18 @@ const Border = ({ shapeId, selectedObject }: IProps) => {
   return (
     <Box>
       <Menu>
-        <MenuButton as={Button}>Border</MenuButton>
+        <MenuButton as={Button}>Borda</MenuButton>
         <MenuList paddingX="10px">
           <FormControl display="flex" alignItems="center">
-            <FormLabel htmlFor="border-switch">Border</FormLabel>
-            <Switch id="border-switch" colorScheme="pink" isChecked={isBorder} onChange={handleIsBorderChange} />
+            <FormLabel htmlFor="border-switch">Borda</FormLabel>
+            <Switch id="border-switch" colorScheme="#6abe45" isChecked={isBorder} onChange={handleIsBorderChange} />
           </FormControl>
 
           {isBorder && (
             <>
               <FormControl>
                 <FormLabel htmlFor="border-width-slider" fontWeight="normal">
-                  Border width:
+                  Tamanho da Borda:
                 </FormLabel>
                 <Slider
                   id="border-width-slider"

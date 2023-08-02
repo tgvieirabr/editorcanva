@@ -94,7 +94,7 @@ const Texts = () => {
           </VStack>
         ) : (
           <VStack w="100%" spacing={3} sx={{ mt: '4' }}>
-            <Button w="100%" colorScheme="pink" onClick={() => addTextToStage()}>
+            <Button w="100%" colorScheme="#6abe45" onClick={() => addTextToStage()}>
               Add a text box
             </Button>
             <Text w="100%" pt={2} textAlign="left" fontSize="14px" fontWeight="bold">

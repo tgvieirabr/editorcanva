@@ -21,7 +21,7 @@ const useStageObject = () => {
 
     const target = stageObjects.find((s) => s.id === id);
     if (!target) {
-      throw new Error(`A target with the id ${id} does not exist.`);
+      throw new Error(`O objeto  ${id} não existe.`);
     }
 
     const payload = { ...target.data, ...data };

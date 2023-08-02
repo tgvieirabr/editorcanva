@@ -32,7 +32,7 @@ const Export = ({ stageRef }: IProps) => {
 
   return (
     <Button onClick={handleExport} w="100%">
-      Export
+      Baixar Imagem
     </Button>
   );
 };

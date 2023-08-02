@@ -59,7 +59,7 @@ const CanvasUpdateForm = () => {
           <Input id="description" placeholder="description" {...register('description')} />
           <FormErrorMessage>{errors.description?.message}</FormErrorMessage>
         </FormControl>
-        <Button type="submit" w="200px" colorScheme="pink" isLoading={isLoading}>
+        <Button type="submit" w="200px" colorScheme="#6abe45" isLoading={isLoading}>
           Save
         </Button>
       </VStack>

@@ -12,7 +12,7 @@ const useRequestHandler = <T>({ f }: HookType<T>) => {
       await f(data).unwrap();
     } catch (error: any) {
       toast({
-        title: 'An error occurred',
+        title: 'Deu erro Thê, Tenta denovo',
         description: error.message,
         status: 'error',
         duration: 9000,

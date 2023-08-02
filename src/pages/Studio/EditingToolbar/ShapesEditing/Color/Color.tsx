@@ -58,11 +58,11 @@ const Color = ({ shapeId, selectedObject }: IProps) => {
   return (
     <Box>
       <Menu>
-        <MenuButton as={Button}>Color</MenuButton>
+        <MenuButton as={Button}>Cor</MenuButton>
         <MenuList padding="0">
-          <Tabs index={tabIndex} colorScheme="pink" onChange={handleTabChange}>
+          <Tabs index={tabIndex} colorScheme="#6abe45" onChange={handleTabChange}>
             <TabList>
-              <Tab>Solid</Tab>
+              <Tab>Solida</Tab>
               {selectedObject.shapeType !== ShapeType.ARROW && (
                 <>
                   <Tab>Linear</Tab>

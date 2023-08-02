@@ -77,7 +77,7 @@ const ImageFilters = ({ imageId, data }: Props) => {
     <Box>
       <Menu>
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-          Filters
+        Filtros
         </MenuButton>
         <MenuList sx={{ p: 6 }}>
           {ALTERABLE_FILTERS.map((f, i) => (

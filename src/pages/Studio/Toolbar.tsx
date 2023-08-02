@@ -21,7 +21,7 @@ const Toolbar = ({ stageRef }: Props) => {
         lazyBehavior="keepMounted"
         orientation="vertical"
         variant="line"
-        colorScheme="pink"
+        colorScheme="#6abe45"
         h="100%"
         id="toolbar"
         bgColor="gray.100"
@@ -39,8 +39,8 @@ const Toolbar = ({ stageRef }: Props) => {
               justifyContent="center"
               fontSize="12px"
               fontWeight="600"
-              _selected={{ bgColor: 'white', color: 'pink.500' }}
-              _hover={{ color: 'pink.500' }}
+              _selected={{ bgColor: 'white', color: '#6abe45' }}
+              _hover={{ color: '#6abe45' }}
             >
               <Icon as={t.icon} boxSize={6} />
               {t.title}

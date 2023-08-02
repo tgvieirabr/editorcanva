@@ -27,8 +27,8 @@ const SearchForm = ({ setSearch, setQueryReset }: Props) => {
               id="query"
               type="search"
               variant="filled"
-              focusBorderColor="pink.500"
-              placeholder="Search photos"
+              focusBorderColor="#6abe45"
+              placeholder="Digite qual imagem procura."
               {...register('query')}
             />
           </InputGroup>

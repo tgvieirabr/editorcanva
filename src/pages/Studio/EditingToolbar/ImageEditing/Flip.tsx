@@ -24,8 +24,8 @@ const ImageFlip = ({ selectedObject }: Props) => {
 
   return (
     <>
-      <Button onClick={() => flipVertically()}>Flip vertically</Button>
-      <Button onClick={() => flipHorizontally()}>Flip horizontally</Button>
+      <Button onClick={() => flipVertically()}>Espelhar vertical</Button>
+      <Button onClick={() => flipHorizontally()}>Espelhar horizontal</Button>
     </>
   );
 };

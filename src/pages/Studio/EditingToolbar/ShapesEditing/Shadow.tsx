@@ -111,18 +111,18 @@ const Shadow = ({ shapeId, selectedObject }: IProps) => {
   return (
     <Box>
       <Menu>
-        <MenuButton as={Button}>Shadow</MenuButton>
+        <MenuButton as={Button}>Sombra</MenuButton>
         <MenuList paddingX="10px" overflowY="auto" maxH="400px">
           <FormControl display="flex" alignItems="center">
-            <FormLabel htmlFor="shadow-switch">Shadow</FormLabel>
-            <Switch colorScheme="pink" id="shadow-switch" isChecked={isShadow} onChange={handleIsShadowChange} />
+            <FormLabel htmlFor="shadow-switch">Editar</FormLabel>
+            <Switch colorScheme="#6abe45" id="shadow-switch" isChecked={isShadow} onChange={handleIsShadowChange} />
           </FormControl>
 
           {isShadow && (
             <>
               <FormControl>
                 <FormLabel htmlFor="shadow-offset-x-slider" fontWeight="normal">
-                  Shadow offset x:
+                  Alinhamento horizontal (x):
                 </FormLabel>
                 <Slider
                   id="shadow-offset-x-slider"
@@ -139,7 +139,7 @@ const Shadow = ({ shapeId, selectedObject }: IProps) => {
 
               <FormControl>
                 <FormLabel htmlFor="shadow-offset-y-slider" fontWeight="normal">
-                  Shadow offset y:
+                  Alinhamento vertical (y):
                 </FormLabel>
                 <Slider
                   id="shadow-offset-y-slider"
@@ -156,7 +156,7 @@ const Shadow = ({ shapeId, selectedObject }: IProps) => {
 
               <FormControl>
                 <FormLabel htmlFor="shadow-blur-slider" fontWeight="normal">
-                  Shadow blur:
+                  Blur da sombra:
                 </FormLabel>
                 <Slider
                   id="shadow-blur-slider"

@@ -28,7 +28,7 @@ const useSaveContent = () => {
     update({ ...stageValues, content })
       .then(() => {
         toast({
-          title: 'Changes were successfully saved.',
+          title: 'Tá salvo Chê.',
           status: 'success',
           duration: 5000,
           isClosable: true,

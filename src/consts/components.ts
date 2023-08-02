@@ -9,13 +9,13 @@ import {
 } from 'react-icons/hi';
 
 export const TOOLBAR_TABS = [
-  { icon: HiOutlineArrowsExpand, title: 'Resize' },
-  { icon: HiOutlineDownload, title: 'Export' },
-  { icon: HiOutlinePhotograph, title: 'Images' },
+  { icon: HiOutlineArrowsExpand, title: 'Redimensionar' },
+  { icon: HiOutlineDownload, title: 'Exportar' },
+  { icon: HiOutlinePhotograph, title: 'Imagens' },
   { icon: HiOutlineCloudUpload, title: 'Upload' },
-  { icon: HiOutlineTranslate, title: 'Text' },
-  { icon: HiOutlineCube, title: 'Shapes' },
-  { icon: HiOutlineInformationCircle, title: 'Hotkeys' },
+  { icon: HiOutlineTranslate, title: 'Texto' },
+  { icon: HiOutlineCube, title: 'Formas' },
+  { icon: HiOutlineInformationCircle, title: 'Atalhos' },
 ];
 
 export const NAVBAR_HEIGHT = 56;
