@@ -1,9 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import Studio from './pages/Studio/Studio';
-import SignIn from '~/pages/Auth/SignIn';
-import SignUp from '~/pages/Auth/SignUp';
-import EmailConfirm from '~/pages/Auth/EmailConfirm';
-import AuthLayout from './pages/Auth/AuthLayout';
 import { useAppSelector } from './hooks/use-app-selector';
 import { useEffect } from 'react';
 import { useLazyGetCanvasesQuery } from './store/api/canvas-slice';
@@ -39,11 +35,8 @@ function App() {
   ) : (
     <Routes>
       <Route path="/" element={<Studio />} />
-      <Route element={<AuthLayout />}>
-        <Route path="/auth/sign-in" element={<SignIn />} />
-        <Route path="/auth/sign-up" element={<SignUp />} />
-        <Route path="/auth/verify-email" element={<EmailConfirm />} />
-      </Route>
+      </Routes>
+      
     </Routes>
   );
 }
