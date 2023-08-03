@@ -54,6 +54,7 @@ export default defineConfig({
     }),
   ],
   server: {
+    
     watch: {
       usePolling: true,
     },
@@ -63,4 +64,6 @@ export default defineConfig({
       '~': path.resolve(__dirname, './src'),
     },
   },
+  
 });
+

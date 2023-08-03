@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import NothingFound from '~/components/NothingFound/NothingFound';
 import { unsplash } from '~/utils/unsplash-api';
 import SearchForm from './SearchForm';
-import { DEFAULT_IMG_QUERY, UNSPLASH_URL } from '~/consts/images';
 import InfiniteWrapper from './InfiniteWrapper';
 import ImagesGrid from './ImagesGrid';
 
@@ -34,6 +33,24 @@ const Images = () => {
     }
   };
 
+  const fetchXmlApi = async () => {
+    try {
+      const response = await fetch('https://carrosnaserra.com.br/anuncios/XML/e659bc890148fc0a79c1813740c726f7Anuncios.xml');
+      const text = await response.text();
+
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(text, 'application/xml');
+
+      // Now you can use xml to navigate through your xml data
+      // This is just an example, replace with your actual xml structure
+      const titles = xml.getElementsByTagName('title');
+      console.log('Title: ', titles[0].textContent);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     if (query && query !== currQuery) {
       setPage(1);
@@ -57,6 +74,10 @@ const Images = () => {
       setPage(1);
     }
   }, [queryReset]);
+
+  useEffect(() => {
+    fetchXmlApi();
+  }, []);
 
   return (
     <>
