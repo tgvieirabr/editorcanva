@@ -1,106 +1,66 @@
-import { Link, Text, VStack } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import NothingFound from '~/components/NothingFound/NothingFound';
-import { unsplash } from '~/utils/unsplash-api';
-import SearchForm from './SearchForm';
-import InfiniteWrapper from './InfiniteWrapper';
-import ImagesGrid from './ImagesGrid';
+import { Link, Text, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import NothingFound from "~/components/NothingFound/NothingFound";
+import SearchForm from "./SearchForm";
+import InfiniteWrapper from "./InfiniteWrapper";
+import ImagesGrid from "./ImagesGrid";
 
 export type Photo = {
   id: string;
   urls: { regular: string };
 };
-
 const Images = () => {
   const [images, setImages] = useState<Photo[]>([]);
-  const [currQuery, setCurrQuery] = useState<string>('');
-  const [query, setQuery] = useState<string>('');
-  const [page, setPage] = useState<number>(1);
-  const [queryReset, setQueryReset] = useState<boolean>(false);
-
   const fetchImages = async () => {
     try {
-      setPage((prev) => prev + 1);
-
-      const photos = await unsplash.search.getPhotos({ query: currQuery || DEFAULT_IMG_QUERY, page });
-      const result = photos.response?.results as Photo[] | [];
-      setImages((currQuery && currQuery === query) || queryReset ? result : [...images, ...result]);
-
-      query && setQuery('');
-      queryReset && setQueryReset(false);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const fetchXmlApi = async () => {
-    try {
-      const response = await fetch('https://carrosnaserra.com.br/anuncios/XML/e659bc890148fc0a79c1813740c726f7Anuncios.xml');
-      const text = await response.text();
-
+      // Fetch images from the new API
+      const response = await fetch(
+        "https://app.revendapro.com.br/api/reseller/daab8dd92515d859f885cefa6f1fe4fd0aa94d5e"
+      );
+      const xmlData = await response.text();
+      // Parse XML response to extract image URLs inside the <Fotos> tag
       const parser = new DOMParser();
-      const xml = parser.parseFromString(text, 'application/xml');
-
-      // Now you can use xml to navigate through your xml data
-      // This is just an example, replace with your actual xml structure
-      const titles = xml.getElementsByTagName('title');
-      console.log('Title: ', titles[0].textContent);
-
+      const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+      const fotosElements = xmlDoc.getElementsByTagName("Fotos");
+      const imagesFromAPI = Array.from(fotosElements).map((foto, index) => {
+        const links = foto.textContent.split(";");
+        const firstLink = links.length > 0 ? links[0] : "";
+        return {
+          id: index.toString(), // Use the index as an ID for now
+          urls: { regular: firstLink },
+        };
+      });
+      // Update the images state with the fetched images
+      setImages(imagesFromAPI);
     } catch (err) {
       console.error(err);
     }
   };
-
   useEffect(() => {
-    if (query && query !== currQuery) {
-      setPage(1);
-      setCurrQuery(query);
-    }
-    if (!query && !currQuery) {
-      fetchImages();
-    }
-  }, [query]);
-
-  useEffect(() => {
-    if (currQuery === query) {
-      document.getElementById('imageGrid')?.scrollTo(0, 0);
-      fetchImages();
-    }
-  }, [currQuery]);
-
-  useEffect(() => {
-    if (queryReset) {
-      setCurrQuery('');
-      setPage(1);
-    }
-  }, [queryReset]);
-
-  useEffect(() => {
-    fetchXmlApi();
+    fetchImages(); // Fetch images on component mount
   }, []);
-
   return (
     <>
       <VStack bgColor="white" w="100%" spacing={3} p="4">
-        <SearchForm setSearch={setQuery} setQueryReset={setQueryReset} />
-        <Text>
-          Mostrando abaixo seu estoque {' '}
-      
-        </Text>
+        <SearchForm setSearch={setImages} setQueryReset={fetchImages} />
       </VStack>
-      <VStack id="imageGrid" spacing={3} sx={{ p: 4, position: 'relative', h: '100%', overflowY: 'auto' }}>
+      <VStack
+        id="imageGrid"
+        spacing={3}
+        sx={{ p: 4, position: "relative", h: "100%", overflowY: "auto" }}
+      >
         {!images?.length ? (
-          <NothingFound message="Acabou as foto Thê." />
+          <NothingFound message="No images were found." />
         ) : (
-          <>
-            <InfiniteWrapper fetchItems={fetchImages} count={images?.length || 10}>
-              <ImagesGrid images={images} />
-            </InfiniteWrapper>
-          </>
+          <InfiniteWrapper
+            fetchItems={fetchImages}
+            count={images?.length || 10}
+          >
+            <ImagesGrid images={images} />
+          </InfiniteWrapper>
         )}
       </VStack>
     </>
   );
 };
-
 export default Images;
