@@ -1,0 +1,1 @@
+{"name":"tg-react","short_name":"tg-react","start_url":"/","display":"standalone","background_color":"#ffffff","lang":"en","scope":"/","description":"mvp do canva feito em reactjs.","theme_color":"#6abe45","icons":[{"src":"pwa-64x64.png","sizes":"64x64","type":"image/png"},{"src":"maskable-icon-512x512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}]}

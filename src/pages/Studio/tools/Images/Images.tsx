@@ -9,8 +9,13 @@ export type Photo = {
   id: any;
   urls: { regular: any };
 };
+// @ts-ignore  const [searchQuery, setSearchQuery] = useState<string>('');
+
+
 const Images = () => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  // Correção aqui: declare tanto o valor do estado quanto o setter
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
 
   const [images, setImages] = useState<Photo[]>([]);
   const fetchImages = async () => {
@@ -32,8 +37,6 @@ const Images = () => {
           urls: { regular: firstLink },
         };
       });
-      
-
 
       // Update the images state with the fetched images
       setImages(imagesFromAPI);
@@ -41,15 +44,18 @@ const Images = () => {
       console.error(err);
     }
   };
+
   useEffect(() => {
     fetchImages(); // Fetch images on component mount
   }, []);
+
   return (
     <>
       <VStack bgColor="white" w="100%" spacing={3} p="4">
-      <SearchForm setSearch={setSearchQuery} setQueryReset={fetchImages} />
+        <SearchForm setSearch={setSearchQuery} setQueryReset={fetchImages} />
       </VStack>
-      <VStack id="imageGrid"
+      <VStack
+        id="imageGrid"
         spacing={3}
         sx={{ p: 4, position: "relative", h: "100%", overflowY: "auto" }}
       >
@@ -67,4 +73,5 @@ const Images = () => {
     </>
   );
 };
+
 export default Images;

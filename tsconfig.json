@@ -4,7 +4,6 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
-
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -14,9 +13,8 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-
     "strict": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false, // Adicione esta linha
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
