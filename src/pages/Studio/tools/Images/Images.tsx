@@ -10,7 +10,8 @@ export type Photo = {
   urls: { regular: any };
 };
 const Images = () => {
-  const [ setQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
   const [images, setImages] = useState<Photo[]>([]);
   const fetchImages = async () => {
     try {
@@ -46,10 +47,9 @@ const Images = () => {
   return (
     <>
       <VStack bgColor="white" w="100%" spacing={3} p="4">
-      <SearchForm setSearch={setQuery} setQueryReset={fetchImages} />
+      <SearchForm setSearch={setSearchQuery} setQueryReset={fetchImages} />
       </VStack>
-      <VStack
-        id="imageGrid"
+      <VStack id="imageGrid"
         spacing={3}
         sx={{ p: 4, position: "relative", h: "100%", overflowY: "auto" }}
       >
