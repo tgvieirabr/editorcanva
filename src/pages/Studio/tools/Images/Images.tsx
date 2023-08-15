@@ -23,13 +23,16 @@ const Images = () => {
       const xmlDoc = parser.parseFromString(xmlData, "text/xml");
       const fotosElements = xmlDoc.getElementsByTagName("Fotos");
       const imagesFromAPI = Array.from(fotosElements).map((foto, index) => {
-        const links = foto.textContent.split(";");
+        const links = foto.textContent ? foto.textContent.split(";") : []; // Verifique se foto.textContent existe
         const firstLink = links.length > 0 ? links[0] : "";
         return {
-          id: index.toString(), // Use the index as an ID for now
+          id: index.toString(),
           urls: { regular: firstLink },
         };
       });
+      
+
+
       // Update the images state with the fetched images
       setImages(imagesFromAPI);
     } catch (err) {
