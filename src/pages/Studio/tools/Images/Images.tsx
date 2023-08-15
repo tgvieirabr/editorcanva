@@ -1,4 +1,4 @@
-import { Link, Text, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import NothingFound from "~/components/NothingFound/NothingFound";
 import SearchForm from "./SearchForm";
@@ -6,8 +6,8 @@ import InfiniteWrapper from "./InfiniteWrapper";
 import ImagesGrid from "./ImagesGrid";
 
 export type Photo = {
-  id: string;
-  urls: { regular: string };
+  id: any;
+  urls: { regular: any };
 };
 const Images = () => {
   const [images, setImages] = useState<Photo[]>([]);

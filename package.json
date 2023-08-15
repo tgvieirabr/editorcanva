@@ -10,7 +10,6 @@
     "preview": "vite preview --host 0.0.0.0 --port $PORT",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc",
-    "prepare": "cd .. && husky install client/.husky",
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
   },
   "dependencies": {
