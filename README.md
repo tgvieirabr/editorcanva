@@ -1,1 +1,1 @@
-# poc-canvaclone
+# Editor Canvas
